@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.StringBuilderPrinter;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     int ch = -1;
     int tmp = -1;
+    boolean b[] = new boolean[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("選項對話框測試");
-        builder.setMultiChoiceItems(R.array.drinks, new boolean[4], new DialogInterface.OnMultiChoiceClickListener() {
+        builder.setMultiChoiceItems(R.array.drinks, b, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
@@ -124,7 +126,16 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                StringBuilder sb = new StringBuilder();
+                for (int i=0;i<=3;i++)
+                {
+                    if (b[i])
+                    {
+                        sb.append(String.valueOf(i + ","));
+                    }
+                }
+                TextView tv5 = (TextView) findViewById(R.id.textView5);
+                tv5.setText(sb.toString());
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
