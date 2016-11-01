@@ -62,4 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
     }
+    public void click3(View v)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("選項對話框測試");
+        builder.setSingleChoiceItems(R.array.drinks, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+    }
 }

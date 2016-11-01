@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">YVN110101</string>
+    <string-array name="drinks">
+        <item>可樂</item>
+        <item>汽水</item>
+        <item>紅茶</item>
+        <item>果汁</item>
+
+    </string-array>
 </resources>
