@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("對話框測試");
-        builder.setMessage("這是對話框內容");
+        builder.setMessage("這是對話框內容\n第二行");
 
         builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
             @Override
