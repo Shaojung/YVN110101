@@ -20,19 +20,28 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("對話框測試");
         builder.setMessage("這是對話框內容");
 
-        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, "確定被按下", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "是被按下", Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("否", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, "取消被按下", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "否被按下", Toast.LENGTH_SHORT).show();
             }
         });
+
+        builder.setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "忽略被按下", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         builder.show();
 
     }
