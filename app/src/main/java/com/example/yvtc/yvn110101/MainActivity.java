@@ -107,12 +107,8 @@ public class MainActivity extends AppCompatActivity {
                 tv4.setText(drinks[which]);
             }
         });
+        builder.setCancelable(false);
 
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
         builder.show();
     }
 }
