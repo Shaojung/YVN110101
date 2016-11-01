@@ -94,4 +94,25 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
+    public void click4(View v)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("選項對話框測試");
+        builder.setItems(R.array.drinks, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String[] drinks = getResources().getStringArray(R.array.drinks);
+                TextView tv4 = (TextView) findViewById(R.id.textView4);
+                tv4.setText(drinks[which]);
+            }
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.show();
+    }
 }
