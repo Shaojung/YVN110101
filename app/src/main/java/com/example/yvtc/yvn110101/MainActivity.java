@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    int ch = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +66,25 @@ public class MainActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("選項對話框測試");
-        builder.setSingleChoiceItems(R.array.drinks, -1, new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(R.array.drinks, ch, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                ch = which;
+            }
+        });
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String[] drinks = getResources().getStringArray(R.array.drinks);
+                TextView tv3 = (TextView) findViewById(R.id.textView3);
+                tv3.setText(drinks[ch]);
+            }
+        });
 
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "否被按下", Toast.LENGTH_SHORT).show();
             }
         });
         builder.show();
