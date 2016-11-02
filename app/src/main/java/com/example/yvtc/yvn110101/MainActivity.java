@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     int ch = -1;
     int tmp = -1;
     boolean b[] = new boolean[4];
+    boolean chks[] = new boolean[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("選項對話框測試");
+        b = chks.clone();
         builder.setMultiChoiceItems(R.array.drinks, b, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
@@ -127,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 StringBuilder sb = new StringBuilder();
+                chks = b.clone();
                 for (int i=0;i<=3;i++)
                 {
                     if (b[i])
@@ -141,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                b = chks.clone();
             }
         });
         builder.show();
