@@ -5,7 +5,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.StringBuilderPrinter;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -155,8 +157,19 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("輸入對話框測試");
         builder.setMessage("請輸入你的暱稱");
 
-        builder.setView(R.layout.myview);
+        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+        View myv = inflater.inflate(R.layout.myview, null);
 
+        final TextView tt = (TextView) myv.findViewById(R.id.textView6);
+        Button bb = (Button) myv.findViewById(R.id.button7);
+        bb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tt.setText("Click!! Click!!");
+            }
+        });
+
+        builder.setView(myv);
 
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
