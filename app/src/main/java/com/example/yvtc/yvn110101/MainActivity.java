@@ -1,5 +1,6 @@
 package com.example.yvtc.yvn110101;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -179,5 +180,32 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.show();
+    }
+    public void click7(View v)
+    {
+        final ProgressDialog pd = new ProgressDialog(MainActivity.this);
+        pd.setTitle("測試");
+        pd.setMessage("載入中，請稍候....");
+        pd.setCancelable(false);
+        pd.show();
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        pd.dismiss();
+                    }
+                });
+            }
+        }.start();
+
+
     }
 }
