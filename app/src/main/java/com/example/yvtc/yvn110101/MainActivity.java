@@ -149,4 +149,22 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
     }
+    public void click6(View v)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("輸入對話框測試");
+        builder.setMessage("請輸入你的暱稱");
+
+        builder.setView(R.layout.myview);
+
+
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        builder.show();
+    }
 }
